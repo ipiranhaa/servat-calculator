@@ -13,13 +13,18 @@
     "analyzer": "BUNDLE_ANALYZE=both yarn build"
   },
   "dependencies": {
+    "@material-ui/core": "^3.9.3",
+    "@material-ui/icons": "^3.0.2",
     "@typescript-eslint/eslint-plugin": "^1.6.0",
     "@typescript-eslint/parser": "^1.6.0",
     "@zeit/next-bundle-analyzer": "^0.1.2",
     "@zeit/next-typescript": "^1.1.1",
+    "jss": "^9.8.7",
     "next": "^8.0.4",
     "react": "^16.8.6",
-    "react-dom": "^16.8.6"
+    "react-dom": "^16.8.6",
+    "react-jss": "^8.6.1",
+    "styled-components": "^4.2.0"
   },
   "devDependencies": {
     "@types/next": "^8.0.3",
@@ -27,6 +32,7 @@
     "@types/react-redux": "^7.0.6",
     "@types/styled-components": "^4.1.14",
     "babel-eslint": "^10.0.1",
+    "babel-plugin-styled-components": "^1.10.0",
     "eslint": "^5.16.0",
     "eslint-config-airbnb": "^17.1.0",
     "eslint-config-prettier": "^4.1.0",
