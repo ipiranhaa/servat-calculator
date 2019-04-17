@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import Fab from '@material-ui/core/Fab'
+import { Fab } from '@material-ui/core'
 import AddIcon from '@material-ui/icons/Add'
 
 const FabContainer = styled.div`

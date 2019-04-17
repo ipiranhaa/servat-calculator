@@ -2,12 +2,17 @@ import React from 'react'
 import Document, { Head, Main, NextScript } from 'next/document'
 import { ServerStyleSheet } from 'styled-components'
 
-class MyDocument extends Document {
-  static async getInitialProps(ctx) {
-    let pageContext
-    const page = ctx.renderPage(Component => {
-      const WrappedComponent = props => {
-        pageContext = props.pageContext
+interface Props {
+  pageContext: any
+}
+
+class MyDocument extends Document<Props> {
+  static async getInitialProps(ctx: any) {
+    let pageContext: any
+    const page = ctx.renderPage((Component: any) => {
+      const WrappedComponent = (props: any) => {
+        const propsPageContext = props.pageContext
+        pageContext = propsPageContext
         return <Component {...props} />
       }
 
@@ -21,9 +26,10 @@ class MyDocument extends Document {
     const sheet = new ServerStyleSheet()
     const originalRenderPage = ctx.renderPage
     try {
-      ctx.renderPage = () => originalRenderPage({
-        enhanceApp: App => props => sheet.collectStyles(<App {...props} />)
-      })
+      ctx.renderPage = () =>
+        originalRenderPage({
+          enhanceApp: (App: any) => (props: any) => sheet.collectStyles(<App {...props} />),
+        })
 
       const initialProps = await Document.getInitialProps(ctx)
       return {
@@ -37,9 +43,10 @@ class MyDocument extends Document {
               // eslint-disable-next-line react/no-danger
               dangerouslySetInnerHTML={{ __html: css }}
             />
-            {initialProps.styles}{sheet.getStyleElement()}
+            {initialProps.styles}
+            {sheet.getStyleElement()}
           </React.Fragment>
-        )
+        ),
       }
     } finally {
       sheet.seal()

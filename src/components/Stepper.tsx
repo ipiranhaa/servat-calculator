@@ -1,23 +1,20 @@
 import React from 'react'
-import Stepper from '@material-ui/core/Stepper'
-import Step from '@material-ui/core/Step'
-import StepLabel from '@material-ui/core/StepLabel'
-import Typography from '@material-ui/core/Typography'
+import { Stepper, Step, StepLabel, Typography } from '@material-ui/core'
 
 function getSteps() {
-  return ['Add price of orders', 'Report'];
+  return ['Add price of orders', 'Report']
 }
 
 function getStepContent(stepIndex: number) {
   switch (stepIndex) {
     case 0:
-      return 'Adding orders';
+      return 'Adding orders'
     case 1:
-      return 'What is an ad group anyways?';
+      return 'What is an ad group anyways?'
     case 2:
-      return 'This is the bit I really care about!';
+      return 'This is the bit I really care about!'
     default:
-      return 'Unknown stepIndex';
+      return 'Unknown stepIndex'
   }
 }
 
@@ -27,13 +24,11 @@ function StepProgress() {
   return (
     <div>
       <Stepper activeStep={1} alternativeLabel>
-        {
-          steps.map(label => (
-            <Step key={label}>
-              <StepLabel>{label}</StepLabel>
-            </Step>
-          ))
-        }
+        {steps.map(label => (
+          <Step key={label}>
+            <StepLabel>{label}</StepLabel>
+          </Step>
+        ))}
       </Stepper>
       <div>
         {/* {this.state.activeStep === steps.length ? (
