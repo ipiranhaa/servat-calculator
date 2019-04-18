@@ -8,7 +8,7 @@
   "scripts": {
     "dev": "next",
     "build": "tsc && next build",
-    "start": "next start",
+    "start": "next start -p $PORT",
     "eslint": "eslint . --ext .js,.tsx,.ts",
     "analyzer": "BUNDLE_ANALYZE=both yarn build"
   },

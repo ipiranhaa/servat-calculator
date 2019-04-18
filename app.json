@@ -1,0 +1,17 @@
+{
+  "name": "Servat Calculator",
+  "description": "Web application for calculate food service chart and VAT",
+  "scripts": {},
+  "env": {},
+  "formation": {
+    "web": {
+      "quantity": 1
+    }
+  },
+  "addons": [],
+  "buildpacks": [
+    {
+      "url": "heroku/nodejs"
+    }
+  ]
+}
