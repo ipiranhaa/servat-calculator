@@ -2,11 +2,13 @@ import React from 'react'
 import Head from 'next/head'
 import { Grid } from '@material-ui/core'
 
-type Props = {
+interface Props {
   children: any
 }
 
-function Layout({ children }: Props) {
+function Layout(props: Props) {
+  const { children } = props
+
   return (
     <div>
       <Head>
