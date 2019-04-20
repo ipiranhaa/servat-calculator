@@ -2,7 +2,7 @@ import React from 'react'
 import { Stepper, Step, StepLabel, Typography } from '@material-ui/core'
 
 function getSteps() {
-  return ['Add price of orders', 'Report']
+  return ['Add price of orders', 'Choose price options', 'Report']
 }
 
 function getStepContent(stepIndex: number) {
@@ -22,7 +22,7 @@ function StepProgress() {
   const steps = getSteps()
 
   return (
-    <div>
+    <>
       <Stepper activeStep={1} alternativeLabel>
         {steps.map(label => (
           <Step key={label}>
@@ -54,7 +54,7 @@ function StepProgress() {
         </div>
         {/* )} */}
       </div>
-    </div>
+    </>
   )
 }
 

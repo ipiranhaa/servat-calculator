@@ -1,18 +1,23 @@
 import React from 'react'
+import styled from 'styled-components'
 import { Grid } from '@material-ui/core'
 
 interface Props {
   children: any
 }
 
+const StyledGrid: React.ComponentType<any> = styled(Grid)`
+  height: 100vh;
+`
+
 function Layout(props: Props) {
   const { children } = props
 
   return (
     <Grid container>
-      <Grid item xs sm md lg xl>
+      <StyledGrid item xs sm md lg xl>
         {children}
-      </Grid>
+      </StyledGrid>
     </Grid>
   )
 }
