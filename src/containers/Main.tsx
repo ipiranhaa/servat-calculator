@@ -1,14 +1,34 @@
-import React from 'react'
-import Stepper from '../components/Stepper'
+import React, { useContext } from 'react'
 import AddButton from '../components/AddButton'
-import UserCardList from '../components/UserCardList'
+import CreateOrders from './ManageOrders'
+import Header from '../components/Header'
+import Navigation from '../components/Navigation'
+import { menuContext } from '../contexts/globalContext'
 
 function Main() {
+  const { selectedMenu } = useContext(menuContext)
+  let selectingPage = null
+
+  switch (selectedMenu) {
+    case 'settings':
+      selectingPage = <div>Setting</div>
+      break
+
+    case 'report':
+      selectingPage = <div>Report</div>
+      break
+
+    default:
+      selectingPage = <CreateOrders />
+      break
+  }
+
   return (
     <>
-      <Stepper />
-      <UserCardList />
+      <Header />
+      {selectingPage}
       <AddButton />
+      <Navigation selectedMenu={selectedMenu} />
     </>
   )
 }

@@ -8,13 +8,13 @@ const FabContainer = styled.div`
   text-align: center;
   width: 100%;
   bottom: 0;
-  padding-bottom: 8%;
+  padding-bottom: 16%;
 `
 
 function AddButton() {
   return (
     <FabContainer>
-      <Fab color="secondary" aria-label="Add">
+      <Fab color="primary" aria-label="Add">
         <AddIcon />
       </Fab>
     </FabContainer>

@@ -1,22 +1,22 @@
 import React from 'react'
-import { Stepper, Step, StepLabel, Typography } from '@material-ui/core'
+import { Stepper, Step, StepLabel } from '@material-ui/core'
 
 function getSteps() {
   return ['Add price of orders', 'Choose price options', 'Report']
 }
 
-function getStepContent(stepIndex: number) {
-  switch (stepIndex) {
-    case 0:
-      return 'Adding orders'
-    case 1:
-      return 'What is an ad group anyways?'
-    case 2:
-      return 'This is the bit I really care about!'
-    default:
-      return 'Unknown stepIndex'
-  }
-}
+// function getStepContent(stepIndex: number) {
+//   switch (stepIndex) {
+//     case 0:
+//       return 'Adding orders'
+//     case 1:
+//       return 'What is an ad group anyways?'
+//     case 2:
+//       return 'This is the bit I really care about!'
+//     default:
+//       return 'Unknown stepIndex'
+//   }
+// }
 
 function StepProgress() {
   const steps = getSteps()
@@ -38,7 +38,7 @@ function StepProgress() {
           </div>
         ) : ( */}
         <div>
-          <Typography>{getStepContent(0)}</Typography>
+          {/* <Typography>{getStepContent(0)}</Typography> */}
           <div>
             {/* <Button
                   disabled={0 === 0}
