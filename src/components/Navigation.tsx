@@ -11,10 +11,30 @@ const StyledBottomNavigation: React.ComponentType<any> = styled(BottomNavigation
   bottom: 0;
 `
 
-function AddButton() {
+interface AddButtonProps {
+  selectedMenu: string
+}
+
+function Navigation(props: AddButtonProps) {
+  let selectedValue = null
+
+  switch (props.selectedMenu) {
+    case 'settings':
+      selectedValue = 1
+      break
+
+    case 'report':
+      selectedValue = 2
+      break
+
+    default:
+      selectedValue = 0
+      break
+  }
+
   return (
     <StyledBottomNavigation
-      value={0}
+      value={selectedValue}
       // onChange={this.handleChange}
       showLabels
     >
@@ -25,4 +45,4 @@ function AddButton() {
   )
 }
 
-export default AddButton
+export default Navigation
