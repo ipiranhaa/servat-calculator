@@ -1,14 +1,16 @@
 import React from 'react'
-import Stepper from '../components/Stepper'
 import AddButton from '../components/AddButton'
-import UserCardList from '../components/UserCardList'
+import CreateOrders from './ManageOrders'
+import Header from '../components/Header'
+import Navigation from '../components/Navigation'
 
 function Main() {
   return (
     <>
-      <Stepper />
-      <UserCardList />
+      <Header />
+      <CreateOrders />
       <AddButton />
+      <Navigation />
     </>
   )
 }

@@ -8,7 +8,11 @@ import UserCardItem from './UserCardItem'
 // }
 
 const StyledContainer = styled.div`
+  position: fixed;
+  width: 100vw;
   padding: 0 6vw;
+  overflow: auto;
+  height: calc(100vh - 56px - 56px);
 `
 
 function UserCardList() {
