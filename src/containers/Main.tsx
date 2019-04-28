@@ -9,7 +9,7 @@ import { changeMenu } from '../actions/menuAction'
 function Main() {
   const [{ selectedMenu }, dispatch] = useReducer(menuReducer, { selectedMenu: 'orders' })
 
-  const handleNavigationChange = (e: React.FormEvent<HTMLInputElement>, value: any) => {
+  const handleNavigationChange = (_e: React.FormEvent<HTMLInputElement>, value: any) => {
     let parsedValue = null
 
     switch (value) {
