@@ -13,12 +13,13 @@ const StyledBottomNavigation: React.ComponentType<any> = styled(BottomNavigation
 
 interface AddButtonProps {
   selectedMenu: string
+  onChange: any
 }
 
-function Navigation(props: AddButtonProps) {
+function Navigation({ selectedMenu, onChange }: AddButtonProps) {
   let selectedValue = null
 
-  switch (props.selectedMenu) {
+  switch (selectedMenu) {
     case 'settings':
       selectedValue = 1
       break
@@ -33,11 +34,7 @@ function Navigation(props: AddButtonProps) {
   }
 
   return (
-    <StyledBottomNavigation
-      value={selectedValue}
-      // onChange={this.handleChange}
-      showLabels
-    >
+    <StyledBottomNavigation value={selectedValue} onChange={onChange} showLabels>
       <BottomNavigationAction label="Orders" icon={<AddIcon />} />
       <BottomNavigationAction label="Settings" icon={<SettingsIcon />} />
       <BottomNavigationAction label="Report" icon={<ReportIcon />} />
