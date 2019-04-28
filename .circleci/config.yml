@@ -20,4 +20,5 @@ jobs:
 
       - run:
           command: |
+            npx tsc
             yarn run eslint
