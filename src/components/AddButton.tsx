@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import { Fab } from '@material-ui/core'
 import AddIcon from '@material-ui/icons/Add'
+import { toggleCreateDialog } from '../actions/uiAction'
 
 const FabContainer = styled.div`
   position: fixed;
@@ -11,10 +12,22 @@ const FabContainer = styled.div`
   padding-bottom: 16%;
 `
 
-function AddButton() {
+interface Props {
+  uiDispatch: any
+}
+
+function AddButton(props: Props) {
+  const { uiDispatch } = props
+
+  const handleClickAdd = () => {
+    const action: any = toggleCreateDialog(true)
+    console.log(action)
+    uiDispatch(action)
+  }
+
   return (
     <FabContainer>
-      <Fab color="primary" aria-label="Add">
+      <Fab color="primary" aria-label="Add" onClick={handleClickAdd}>
         <AddIcon />
       </Fab>
     </FabContainer>

@@ -1,12 +1,19 @@
 import React from 'react'
 import UserCardList from '../components/UserCardList'
 
-function CreateOrders() {
+interface Props {
+  orderList: []
+  orderDispatch: any
+}
+
+function ManageOrders(props: Props) {
+  const { orderList, orderDispatch } = props
+
   return (
     <>
-      <UserCardList />
+      <UserCardList orderList={orderList} orderDispatch={orderDispatch} />
     </>
   )
 }
 
-export default CreateOrders
+export default ManageOrders

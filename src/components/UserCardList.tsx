@@ -2,10 +2,16 @@ import React from 'react'
 import styled from 'styled-components'
 import UserCardItem from './UserCardItem'
 
-// interface Props {
-//   name: string
-//   totalPrice: number
-// }
+interface Props {
+  orderList: []
+  orderDispatch: any
+}
+
+interface Order {
+  id: number
+  name: string
+  total: number
+}
 
 const StyledContainer = styled.div`
   position: fixed;
@@ -15,14 +21,17 @@ const StyledContainer = styled.div`
   height: calc(100vh - 56px - 56px);
 `
 
-function UserCardList() {
+function UserCardList(props: Props) {
+  const { orderList } = props
+
   return (
     <StyledContainer>
-      <UserCardItem name="PLs" totalPrice={500} />
-      <UserCardItem name="PLs" totalPrice={500} />
-      <UserCardItem name="PLs" totalPrice={500} />
-      <UserCardItem name="PLs" totalPrice={500} />
-      <UserCardItem name="PLs" totalPrice={500} />
+      <UserCardItem id={11} name="PLs" totalPrice={500} />
+      <UserCardItem id={12} name="PLs" totalPrice={500} />
+      <UserCardItem id={13} name="PLs" totalPrice={500} />
+      {orderList.map((order: Order) => (
+        <UserCardItem key={order.id} id={order.id} name={order.name} totalPrice={order.total} />
+      ))}
     </StyledContainer>
   )
 }
