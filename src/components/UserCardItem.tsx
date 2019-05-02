@@ -5,11 +5,6 @@ import CardContent from '@material-ui/core/CardContent'
 import CardMedia from '@material-ui/core/CardMedia'
 import Typography from '@material-ui/core/Typography'
 
-interface Props {
-  name: string
-  totalPrice: number
-}
-
 const StyledCard: React.ComponentType<any> = styled(Card)`
   display: flex;
   margin: 4vh 0;
@@ -22,6 +17,12 @@ const StyledContentContainer: React.ComponentType<any> = styled.div`
 const StyledCardMedia: React.ComponentType<any> = styled(CardMedia)`
   width: 100px;
 `
+
+interface Props {
+  id: number
+  name: string
+  totalPrice: number
+}
 
 function UserCardItem(props: Props) {
   const { name, totalPrice } = props
