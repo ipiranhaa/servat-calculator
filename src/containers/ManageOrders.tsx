@@ -2,7 +2,7 @@ import React from 'react'
 import UserCardList from '../components/UserCardList'
 
 interface Props {
-  orderList: []
+  orderList: any[]
   orderDispatch: any
 }
 

@@ -1,5 +1,5 @@
 interface State {
-  orderList: []
+  orderList: any[]
 }
 
 interface Action {
@@ -12,8 +12,7 @@ interface Action {
   }
 }
 
-// const all: any[] = [{}]
-export const orderDefaultState = {
+export const orderDefaultState: State = {
   orderList: [],
 }
 

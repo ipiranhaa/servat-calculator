@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import UserCardItem from './UserCardItem'
 
 interface Props {
-  orderList: []
+  orderList: any[]
   orderDispatch: any
 }
 
