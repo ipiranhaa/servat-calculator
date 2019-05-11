@@ -21,13 +21,12 @@ function AddButton(props: Props) {
 
   const handleClickAdd = () => {
     const action: any = toggleCreateDialog(true)
-    console.log(action)
     uiDispatch(action)
   }
 
   return (
     <FabContainer>
-      <Fab color="primary" aria-label="Add" onClick={handleClickAdd}>
+      <Fab color='primary' aria-label='Add' onClick={handleClickAdd}>
         <AddIcon />
       </Fab>
     </FabContainer>

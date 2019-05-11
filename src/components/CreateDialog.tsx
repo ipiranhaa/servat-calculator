@@ -1,8 +1,25 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Dialog, AppBar, Button, Toolbar, IconButton, Typography, Slide } from '@material-ui/core'
+import {
+  Dialog,
+  AppBar,
+  Button,
+  Toolbar,
+  IconButton,
+  Typography,
+  List,
+  ListItem,
+  ListItemText,
+  ListItemAvatar,
+  ListItemSecondaryAction,
+  Avatar,
+} from '@material-ui/core'
 import CloseIcon from '@material-ui/icons/Close'
+import DeleteIcon from '@material-ui/icons/Delete'
+import FoodIcon from '@material-ui/icons/Fastfood'
 import { toggleCreateDialog } from '../actions/uiAction'
+import CreateForm from './CreateForm'
+import { submitNewPerson } from '../actions/orderAction'
 
 const StyledAppBar: React.ComponentType<any> = styled(AppBar)`
   position: 'relative';
@@ -12,36 +29,71 @@ const StyledTypography: React.ComponentType<any> = styled(Typography)`
   flex: 1;
 `
 
+const StyledContainer: React.ComponentType<any> = styled.div`
+  padding: 10vh 6vw;
+`
+
 interface Props {
   isOpen: boolean
+  editingOrder: {
+    name: string
+    currentOrder: number | string
+    orders: number[]
+  }
   uiDispatch: any
+  orderDispatch: any
 }
 
 function CreateDialog(props: Props) {
-  const { isOpen, uiDispatch } = props
+  const { isOpen, editingOrder, uiDispatch, orderDispatch } = props
 
   const handleClose = () => {
     const action: any = toggleCreateDialog(false)
     uiDispatch(action)
   }
 
-  const Transition = (componentProps: any) => <Slide direction="up" {...componentProps} />
+  const handleSubmitPerson = () => {
+    orderDispatch(submitNewPerson())
+    handleClose()
+  }
+
+  // const Transition = (componentProps: any) => <Slide direction='up' {...componentProps} />
 
   return (
-    <Dialog fullScreen open={isOpen} onClose={handleClose} TransitionComponent={Transition}>
+    <Dialog fullScreen open={isOpen} onClose={handleClose}>
       <StyledAppBar>
         <Toolbar>
-          <IconButton color="inherit" aria-label="Close" onClick={handleClose}>
+          <IconButton color='inherit' aria-label='Close' onClick={handleClose}>
             <CloseIcon />
           </IconButton>
-          <StyledTypography variant="h6" color="inherit">
+          <StyledTypography variant='h6' color='inherit'>
             Add Order
           </StyledTypography>
-          <Button color="inherit" onClick={handleClose}>
+          <Button color='inherit' onClick={handleSubmitPerson}>
             save
           </Button>
         </Toolbar>
       </StyledAppBar>
+      <StyledContainer>
+        <CreateForm editingOrder={editingOrder} orderDispatch={orderDispatch} />
+        <List dense={false}>
+          {editingOrder.orders.map((price, index) => (
+            <ListItem key={index}>
+              <ListItemAvatar>
+                <Avatar>
+                  <FoodIcon />
+                </Avatar>
+              </ListItemAvatar>
+              <ListItemText primary={price} />
+              <ListItemSecondaryAction>
+                <IconButton aria-label='Delete'>
+                  <DeleteIcon />
+                </IconButton>
+              </ListItemSecondaryAction>
+            </ListItem>
+          ))}
+        </List>
+      </StyledContainer>
     </Dialog>
   )
 }

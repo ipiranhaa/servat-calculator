@@ -14,7 +14,6 @@ interface Order {
 }
 
 const StyledContainer = styled.div`
-  position: fixed;
   width: 100vw;
   padding: 0 6vw;
   overflow: auto;
@@ -26,9 +25,7 @@ function UserCardList(props: Props) {
 
   return (
     <StyledContainer>
-      <UserCardItem id={11} name="PLs" totalPrice={500} />
-      <UserCardItem id={12} name="PLs" totalPrice={500} />
-      <UserCardItem id={13} name="PLs" totalPrice={500} />
+      <UserCardItem id={11} name='PLs' totalPrice={500} />
       {orderList.map((order: Order) => (
         <UserCardItem key={order.id} id={order.id} name={order.name} totalPrice={order.total} />
       ))}
