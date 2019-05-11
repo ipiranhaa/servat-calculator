@@ -11,7 +11,7 @@ import { changeMenu } from '../actions/menuAction'
 
 function Main() {
   const [{ selectedMenu }, menuDispatch] = useReducer(menuReducer, menuDefaultState)
-  const [{ orderList }, orderDispatch] = useReducer(orderReducer, orderDefaultState)
+  const [{ orderList, editingOrder }, orderDispatch] = useReducer(orderReducer, orderDefaultState)
   const [{ createDialog }, uiDispatch] = useReducer(uiReducer, uiDefaultState)
 
   const handleNavigationChange = (_e: React.FormEvent<HTMLInputElement>, value: any) => {
@@ -19,7 +19,6 @@ function Main() {
     menuDispatch(action)
   }
 
-  console.log(createDialog)
   let selectingPage = null
 
   switch (selectedMenu) {
@@ -41,7 +40,12 @@ function Main() {
       <Header />
       {selectingPage}
       <AddButton uiDispatch={uiDispatch} />
-      {createDialog.isOpen && <CreateDialog isOpen={createDialog.isOpen} uiDispatch={uiDispatch} />}
+      <CreateDialog
+        isOpen={createDialog.isOpen}
+        editingOrder={editingOrder}
+        uiDispatch={uiDispatch}
+        orderDispatch={orderDispatch}
+      />
       <Navigation selectedMenu={selectedMenu} onChange={handleNavigationChange} />
     </>
   )
