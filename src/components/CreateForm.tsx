@@ -33,7 +33,7 @@ function CreateForm(props: Props) {
   }
 
   const handleOrderPriceChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const action: any = setNewOrderPrice(e.target.value)
+    const action: any = setNewOrderPrice(parseInt(e.target.value, 10))
     orderDispatch(action)
   }
 
