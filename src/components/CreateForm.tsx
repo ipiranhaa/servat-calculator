@@ -41,6 +41,12 @@ function CreateForm(props: Props) {
     orderDispatch(submitNewOrderPrice())
   }
 
+  const handleEnterSubmitPrice = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (e.key === 'Enter') {
+      handleSubmitPrice()
+    }
+  }
+
   const InputButton = (
     <InputAdornment position='end'>
       <IconButton aria-label='Send' onClick={handleSubmitPrice}>
@@ -67,6 +73,7 @@ function CreateForm(props: Props) {
           endAdornment={InputButton}
           value={editingOrder.currentOrder}
           onChange={handleOrderPriceChange}
+          onKeyPress={handleEnterSubmitPrice}
         />
       </FormControl>
     </form>

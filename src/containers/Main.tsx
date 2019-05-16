@@ -1,6 +1,7 @@
 import React, { useReducer } from 'react'
 import AddButton from '../components/AddButton'
 import ManageOrders from './ManageOrders'
+import Settings from './Settings'
 import Header from '../components/Header'
 import Navigation from '../components/Navigation'
 import CreateDialog from '../components/CreateDialog'
@@ -23,7 +24,7 @@ function Main() {
 
   switch (selectedMenu) {
     case 'settings':
-      selectingPage = <div>Setting</div>
+      selectingPage = <Settings />
       break
 
     case 'report':
