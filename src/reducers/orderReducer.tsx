@@ -60,6 +60,7 @@ export default (state: State, action: Action) => {
     case 'SUBMIT_NEW_PERSON':
       return {
         ...state,
+        editingOrder: orderDefaultState.editingOrder,
         orderList: [
           ...state.orderList,
           {
