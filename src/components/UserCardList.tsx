@@ -1,5 +1,4 @@
 import React from 'react'
-import styled from 'styled-components'
 import UserCardItem from './UserCardItem'
 
 interface Props {
@@ -13,23 +12,15 @@ interface Order {
   total: number
 }
 
-const StyledContainer = styled.div`
-  width: 100vw;
-  padding: 0 6vw;
-  overflow: auto;
-  height: calc(100vh - 56px - 56px);
-`
-
 function UserCardList(props: Props) {
   const { orderList } = props
 
   return (
-    <StyledContainer>
-      <UserCardItem id={11} name='PLs' totalPrice={500} />
+    <>
       {orderList.map((order: Order) => (
         <UserCardItem key={order.id} id={order.id} name={order.name} totalPrice={order.total} />
       ))}
-    </StyledContainer>
+    </>
   )
 }
 

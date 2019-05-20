@@ -8,8 +8,7 @@ const FabContainer = styled.div`
   position: fixed;
   text-align: center;
   width: 100%;
-  bottom: 0;
-  padding-bottom: 16%;
+  bottom: 64px;
 `
 
 interface Props {

@@ -5,7 +5,6 @@ import { Switch } from '@material-ui/core'
 interface Props {
   checked: boolean
   onChange: any
-  value: string
 }
 
 const StyledSwitch: React.ComponentType<any> = styled(Switch)`
@@ -16,9 +15,9 @@ const StyledSwitch: React.ComponentType<any> = styled(Switch)`
 `
 
 function CustomSwitch(props: Props) {
-  const { checked, onChange, value } = props
+  const { checked, onChange } = props
 
-  return <StyledSwitch checked={checked} onChange={onChange} value={value} />
+  return <StyledSwitch checked={checked} onChange={onChange} />
 }
 
 export default CustomSwitch
