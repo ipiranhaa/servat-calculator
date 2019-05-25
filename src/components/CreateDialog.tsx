@@ -19,7 +19,7 @@ import DeleteIcon from '@material-ui/icons/Delete'
 import FoodIcon from '@material-ui/icons/Fastfood'
 import { toggleCreateDialog } from '../actions/uiAction'
 import CreateForm from './CreateForm'
-import { submitNewPerson } from '../actions/orderAction'
+import { setNewOrders, submitNewPerson } from '../actions/orderAction'
 
 const StyledAppBar: React.ComponentType<any> = styled(AppBar)`
   position: 'relative';
@@ -57,7 +57,12 @@ function CreateDialog(props: Props) {
     handleClose()
   }
 
-  // const Transition = (componentProps: any) => <Slide direction='up' {...componentProps} />
+  const handleRemoveOrder = (index: number) => {
+    const newOrders = editingOrder.orders.filter((_value, idx) => idx !== index)
+    orderDispatch(setNewOrders(newOrders))
+  }
+
+  const isCanSave = editingOrder.name && editingOrder.orders.length > 0
 
   return (
     <Dialog fullScreen open={isOpen} onClose={handleClose}>
@@ -69,7 +74,7 @@ function CreateDialog(props: Props) {
           <StyledTypography variant='h6' color='inherit'>
             Add Order
           </StyledTypography>
-          <Button color='inherit' onClick={handleSubmitPerson}>
+          <Button color='inherit' onClick={handleSubmitPerson} disabled={!isCanSave}>
             save
           </Button>
         </Toolbar>
@@ -86,7 +91,7 @@ function CreateDialog(props: Props) {
               </ListItemAvatar>
               <ListItemText primary={price} />
               <ListItemSecondaryAction>
-                <IconButton aria-label='Delete'>
+                <IconButton aria-label='Delete' onClick={() => handleRemoveOrder(index)}>
                   <DeleteIcon />
                 </IconButton>
               </ListItemSecondaryAction>

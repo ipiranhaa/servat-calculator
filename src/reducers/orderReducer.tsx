@@ -47,6 +47,15 @@ export default (state: State, action: Action) => {
         },
       }
 
+    case 'SET_NEW_ORDERS':
+      return {
+        ...state,
+        editingOrder: {
+          ...state.editingOrder,
+          orders: action.payload,
+        },
+      }
+
     case 'SUBMIT_NEW_ORDER_PRICE':
       return {
         ...state,
