@@ -12,6 +12,7 @@
     "dev": "next",
     "test": "jest",
     "build": "tsc && next build",
+    "export": "yarn build && next export",
     "start": "next start -p $PORT",
     "eslint": "eslint . --ext .js,.tsx,.ts",
     "analyzer": "BUNDLE_ANALYZE=both yarn build"
@@ -28,11 +29,11 @@
     ]
   },
   "dependencies": {
-    "@material-ui/core": "^4.0.0",
+    "@material-ui/core": "^3.9.3",
     "@material-ui/icons": "^4.0.0",
     "@typescript-eslint/eslint-plugin": "^1.6.0",
     "@typescript-eslint/parser": "^1.6.0",
-    "@zeit/next-bundle-analyzer": "^3.3.2",
+    "@zeit/next-bundle-analyzer": "^0.1.2",
     "@zeit/next-typescript": "^1.1.1",
     "jss": "^9.8.7",
     "next": "^8.0.4",
