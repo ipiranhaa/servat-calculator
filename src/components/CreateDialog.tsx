@@ -62,7 +62,7 @@ function CreateDialog(props: Props) {
     orderDispatch(setNewOrders(newOrders))
   }
 
-  // const Transition = (componentProps: any) => <Slide direction='up' {...componentProps} />
+  const isCanSave = editingOrder.name && editingOrder.orders.length > 0
 
   return (
     <Dialog fullScreen open={isOpen} onClose={handleClose}>
@@ -74,7 +74,7 @@ function CreateDialog(props: Props) {
           <StyledTypography variant='h6' color='inherit'>
             Add Order
           </StyledTypography>
-          <Button color='inherit' onClick={handleSubmitPerson}>
+          <Button color='inherit' onClick={handleSubmitPerson} disabled={!isCanSave}>
             save
           </Button>
         </Toolbar>
